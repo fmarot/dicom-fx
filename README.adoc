@@ -13,4 +13,4 @@ toc::[]
 
 = License
 
-GPL V3 
+Apache License Version 2.0
