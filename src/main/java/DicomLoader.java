@@ -1,9 +1,8 @@
 import java.awt.BorderLayout;
-import java.awt.Frame;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
+import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import org.dcm4che3.data.Attributes;
@@ -30,8 +29,17 @@ public class DicomLoader {
 			SwingUtilities.invokeLater( () -> {
 				JFrame frame = new JFrame("FrameDemo");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				frame.getContentPane().add(new DicomPanel(attr), BorderLayout.CENTER);
+				
+				JPanel wrapperPanel = new JPanel();
+				wrapperPanel.setBackground(Color.CYAN);
+				wrapperPanel.setLayout(new SingleComponentAspectRatioKeeperLayout());
+				
+				DicomPanel dicomPanel = new DicomPanel(attr);
+				wrapperPanel.add(dicomPanel);
+				
+				frame.getContentPane().add(wrapperPanel, BorderLayout.CENTER);
 				frame.setSize(500, 500);
+				wrapperPanel.doLayout();
 				frame.setVisible(true);
 			});
 		}
