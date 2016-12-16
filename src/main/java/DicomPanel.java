@@ -52,6 +52,6 @@ public class DicomPanel extends JPanel {
 		g.setColor(Color.RED);
 		g.fillRect(0, 0, getWidth(), getHeight());
 		g.drawImage(image, 0, 0, null);
-		g.drawString("This is my custom Panel!", 10, 20);
+//		g.drawString("This is my custom Panel!", 10, 20);
 	}
 }
